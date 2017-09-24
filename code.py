@@ -44,6 +44,14 @@ class RSdata(Dataset):
 testloader = RSdata(datapath = '/tmp/anjan/datacopy/test/images' , labelpath = '/tmp/anjan/datacopy/test/test_labels.csv')
 trainloader = RSdata(datapath = '/tmp/anjan/datacopy/train/images' , labelpath =  '/tmp/anjan/datacopy/train/train_labels.csv')
 
+class CNN(nn.Module):
+    def __init__(self):
+        super(CNN, self).__init__()
+        self.layer1 = nn.Sequential(
+        nn.Conv2d(3,32,11,11),
+        nn.BatchNorm2d(32),
+        nn.ReLU(),
+        nn.MaxPool2d(2,2,2,2))
 
 # # Data
 # traindatalist = []
